@@ -1,0 +1,9 @@
+
+<div>
+  <p [ngClass]="getClasses()">
+    <input (change)="chbPressed()"  type="checkbox" [defaultChecked]="innerTodo.completed">
+    {{this.ts.getText()}}
+    <button class="del" (click)="deleteTodo()" >x</button>
+  </p>
+</div>
+
