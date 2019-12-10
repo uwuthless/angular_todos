@@ -1,6 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {Todo} from '../../models/Todo';
 import {TodoService} from '../../services/todo.service';
+import {log} from 'util';
 
 @Component({
   selector: 'app-todo-item',
@@ -21,7 +22,9 @@ export class TodoItemComponent implements OnInit {
   }
 
   chbPressed() {
-    this.ts.changeString();
+    this.ts.updateTodoStatus(this.innerTodo).subscribe((todo) => {
+      log(todo);
+    });
   }
 
   deleteTodo() {
